@@ -1,4 +1,5 @@
 {
+  "installCommand": "npm install --include=dev",
   "buildCommand": "npm run build:prod",
   "outputDirectory": "dist/soms-client/browser",
   "framework": "angular",
