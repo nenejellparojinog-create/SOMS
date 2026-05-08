@@ -3,7 +3,7 @@ import { AppError } from '../middleware/errorHandler';
 import { v4 as uuidv4 } from 'uuid';
 
 export class DocumentService {
-  async upload(file: Express.Multer.File, metadata: {
+  async upload(file: any, metadata: {
     user_id: string; title: string; description?: string;
     organization_id?: string; document_type: string;
   }) {
