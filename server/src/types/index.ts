@@ -1,4 +1,4 @@
-import { Request } from 'express';
+import { Request, Response } from 'express';
 
 export interface AuthUser {
   id: string;
@@ -9,6 +9,10 @@ export interface AuthUser {
 
 export interface AuthRequest extends Request {
   user?: AuthUser;
+  query: Record<string, any>;
+  params: Record<string, any>;
+  body: Record<string, any>;
+  headers: Record<string, any>;
 }
 
 export interface ApiResponse<T = unknown> {

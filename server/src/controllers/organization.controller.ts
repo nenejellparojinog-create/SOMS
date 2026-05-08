@@ -24,7 +24,7 @@ export const getOrganization = async (req: AuthRequest, res: Response, next: Nex
 
 export const createOrganization = async (req: AuthRequest, res: Response, next: NextFunction) => {
   try {
-    const org = await orgService.create({ ...req.body, created_by: req.user!.id });
+    const org = await orgService.create({ ...(req.body as any), created_by: req.user!.id });
     res.status(201).json({ success: true, message: 'Organization created', data: org });
   } catch (err) { next(err); }
 };
