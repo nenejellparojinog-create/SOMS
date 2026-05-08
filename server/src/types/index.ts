@@ -13,6 +13,7 @@ export interface AuthRequest extends Request {
   params: Record<string, any>;
   body: Record<string, any>;
   headers: Record<string, any>;
+  file?: Express.Multer.File;
 }
 
 export interface ApiResponse<T = unknown> {
