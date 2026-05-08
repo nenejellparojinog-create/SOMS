@@ -21,11 +21,17 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const allowedOrigins = [
+  ...(process.env.CLIENT_URL?.split(',').map(origin => origin.trim()).filter(Boolean) || []),
+  'https://soms-gamma.vercel.app',
+  'http://localhost:4200',
+  'http://localhost:5173',
+];
 
 // Security middleware
 app.use(helmet());
 app.use(cors({
-  origin: [process.env.CLIENT_URL || 'http://localhost:4200', 'http://localhost:5173'],
+  origin: allowedOrigins,
   credentials: true,
 }));
 
